@@ -10,7 +10,7 @@ import { IoMdClose } from "react-icons/io";
 import { setToggle } from "../redux/Features/ToggleSlice";
 import type { RootState } from "../redux/store/store";
 import type { useAppDispatch } from "../redux/store/store";
-import { Link } from "react-router-dom";
+
 
 const Navbar: React.FC = () => {
   const toggler = useSelector((state: RootState) => state.Toggle.open);
@@ -33,11 +33,12 @@ const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  
   return (
     <div
-      className={`flex justify-between items-center fixed w-full z-10 p-4 ${
-        darkThemeToggler ? "bg-[#1f1f1f]" : "bg-white"
-      } shadow-md`}
+      className={`z-[60] flex justify-between items-center fixed w-full  p-4 transition-all duration-300 ease-in-out ${
+        darkThemeToggler ? "bg-[#0f0f0f] shadow-gray-600 shadow-md" : "bg-white  shadow-xl"
+      } `}
     >
       <div className="flex items-center gap-4">
         <RxHamburgerMenu

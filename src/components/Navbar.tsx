@@ -10,6 +10,7 @@ import { IoMdClose } from "react-icons/io";
 import { setToggle } from "../redux/Features/ToggleSlice";
 import type { RootState } from "../redux/store/store";
 import type { useAppDispatch } from "../redux/store/store";
+import { Link } from "react-router-dom";
 
 
 const Navbar: React.FC = () => {
@@ -94,7 +95,8 @@ const Navbar: React.FC = () => {
 
         {!user ? (
           <div className="hidden sm:flex gap-2">
-            <button
+            <Link
+            to={'/auth'}
               className={`px-3 py-2 border rounded-md ${
                 darkThemeToggler
                   ? "border-white text-white hover:bg-slate-100 hover:text-black"
@@ -102,8 +104,9 @@ const Navbar: React.FC = () => {
               } hover:scale-105 duration-300`}
             >
               Register
-            </button>
-            <button
+            </Link>
+            <Link
+            to={'/auth'}
               className={`px-3 py-2 border rounded-md ${
                 darkThemeToggler
                   ? "border-white text-white hover:bg-slate-100 hover:text-black"
@@ -111,7 +114,7 @@ const Navbar: React.FC = () => {
               } hover:scale-105 duration-300`}
             >
               Login
-            </button>
+            </Link>
           </div>
         ) : (
           <Avatar

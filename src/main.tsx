@@ -6,18 +6,16 @@ import {
   createBrowserRouter,
   createRoutesFromChildren,
   Route,
-  Router,
   RouterProvider,
 } from "react-router-dom";
 import {AppLayout,NoSidebarLayout } from './layouts/index.ts'
-import {HomePage,LoginPage,ResgiterPage} from './pages/index.ts'
+import {HomePage,LoginAndResgisterPage} from './pages/index.ts'
 import './App.css'
 
 const router = createBrowserRouter(
   createRoutesFromChildren([
     <Route element={<NoSidebarLayout />}>
-      <Route path="/login"  element={<LoginPage/>}/>
-      <Route path="/register" element={<ResgiterPage/>}/>
+      <Route path="/auth"  element={<LoginAndResgisterPage/>}/>
     </Route>,
     <Route element={<AppLayout />}>
       <Route path="/" element={<HomePage/>}/>

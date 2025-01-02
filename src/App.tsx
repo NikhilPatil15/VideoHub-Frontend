@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import './App.css'
 import Navbar from './components/Navbar'
 
-function App() {
+export function App() {
   const darkTheme = useSelector((state:any) => state.DarkTheme.dark)  
 
   return (
@@ -16,4 +16,3 @@ function App() {
   )
 }
 
-export default App

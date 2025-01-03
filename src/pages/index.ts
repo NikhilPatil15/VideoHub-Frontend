@@ -1,4 +1,4 @@
 import HomePage from "./HomePage";
-import LoginAndResgisterPage from "./LoginAndRegsiterPage";
+import AuthPage from "./AuthPage"
 
-export { HomePage, LoginAndResgisterPage };
+export { HomePage, AuthPage };

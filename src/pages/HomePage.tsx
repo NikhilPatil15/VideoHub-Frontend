@@ -2,7 +2,7 @@ import VideoContainer from "../components/VideoContainer";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
 
-const HomePage = ():JSX.Element => {
+const HomePage = (): JSX.Element => {
   const toggle = useSelector((state: RootState) => state.Toggle.open);
   const darkTheme = useSelector((state: RootState) => state.DarkTheme.dark);
   return (

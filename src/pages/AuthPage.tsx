@@ -5,24 +5,51 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../redux/store/store";
 import { setDarkTheme } from "../redux/Features/DarkThemeToggleSlice";
 import { useForm } from "react-hook-form";
+import axiosInstance from "../utils/axiosInstance";
+
 
 interface IForm {
   email: string;
-  fullname: string;
+  firstName:string
+  lastName:string
   password: string;
-  username: string;
+  userName: string;
 }
 
-const LoginAndRegsiterPage = () => {
+const AuthPage = () => {
   const [activeTab, setActiveTab] = useState("login");
   const [showPassword, setShowPassword] = useState(false);
   const darkThemeToggler = useSelector(
     (state: RootState) => state.DarkTheme.dark
   );
-  const user = useSelector((state: RootState) => state.Auth.user);
+  
   const dispatch = useDispatch<useAppDispatch>();
-  // const {register, handlesubmit} = useForm<IForm>()
+  const {register, handleSubmit} = useForm<IForm>()
 
+  const onSubmitLogin = async(data:IForm) => {
+    console.log("Login form submitted!");
+    
+  
+    const response = await axiosInstance.post("/login",data)
+
+    console.log("Response: ", response);
+
+    
+    
+
+  }
+  const onSubmitRegister = async(data:IForm) => {
+    console.log("Login form submitted!");
+    
+  
+    const response = await axiosInstance.post("/register",data)
+
+    console.log("Response: ", response);
+
+
+    
+
+  }
   const handleDarkThemeClick = () => {
     const newThemeState: boolean = !darkThemeToggler;
     dispatch(setDarkTheme(newThemeState));
@@ -48,8 +75,10 @@ const LoginAndRegsiterPage = () => {
             onClick={() => setActiveTab("login")}
             className={`flex-1  text-sm font-medium rounded-md transition-colors ${
               activeTab === "login"
-                ? `bg-gray-100  ${
-                    !darkThemeToggler ? "text-gray-800" : "text-black"
+                ? `  ${
+                    !darkThemeToggler
+                      ? "bg-gray-800 text-white"
+                      : " bg-gray-100 text-black"
                   }`
                 : `${!darkThemeToggler ? "text-black" : "text-white"} `
             }`}
@@ -60,8 +89,10 @@ const LoginAndRegsiterPage = () => {
             onClick={() => setActiveTab("register")}
             className={`flex-1 py-2 text-sm font-medium rounded-md transition-colors ${
               activeTab === "register"
-                ? `bg-gray-100  ${
-                    !darkThemeToggler ? "text-gray-800" : "text-black"
+                ? `  ${
+                    !darkThemeToggler
+                      ? "bg-gray-800 text-white"
+                      : " bg-gray-100 text-black"
                   }`
                 : `${!darkThemeToggler ? "text-black" : "text-white"} `
             }`}
@@ -84,7 +115,11 @@ const LoginAndRegsiterPage = () => {
               <div className=" flex justify-stretch ">
                 <div>
                   <h2 className={` text-2xl font-bold `}>Login</h2>
-                  <p className={`text-sm ${darkThemeToggler ? 'text-white': 'text-black'} mt-1`}>
+                  <p
+                    className={`text-sm ${
+                      darkThemeToggler ? "text-white" : "text-black"
+                    } mt-1`}
+                  >
                     Welcome back! Please enter your credentials to continue.
                   </p>
                 </div>
@@ -108,7 +143,7 @@ const LoginAndRegsiterPage = () => {
               </div>
 
               {/* Login Form */}
-              <form action="" className="space-y-6">
+              <form action="" className="space-y-6" onSubmit={handleSubmit(onSubmitLogin)}>
                 <div className="space-y-4">
                   <div className="space-y-1">
                     <label
@@ -126,6 +161,7 @@ const LoginAndRegsiterPage = () => {
                           ? "bg-black text-white"
                           : "bg-white text-black"
                       }`}
+                      {...register("email",{required:true})}
                     />
                   </div>
 
@@ -146,6 +182,7 @@ const LoginAndRegsiterPage = () => {
                             ? "bg-black text-white"
                             : "bg-white text-black"
                         }`}
+                        {...register("password",{required:true})}
                       />
                       <button
                         type="button"
@@ -202,8 +239,18 @@ const LoginAndRegsiterPage = () => {
               {/* Register Header */}
               <div className="flex justify-between">
                 <div>
-                  <h2 className={`${darkThemeToggler ? 'text-white': 'text-black'}   font-bold`}>Register</h2>
-                  <p className={`text-sm ${darkThemeToggler ? 'text-white': 'text-black'} mt-1`}>
+                  <h2
+                    className={`${
+                      darkThemeToggler ? "text-white" : "text-black"
+                    }   font-bold`}
+                  >
+                    Register
+                  </h2>
+                  <p
+                    className={`text-sm ${
+                      darkThemeToggler ? "text-white" : "text-black"
+                    } mt-1`}
+                  >
                     Create a new account to get started.
                   </p>
                 </div>
@@ -227,11 +274,15 @@ const LoginAndRegsiterPage = () => {
               </div>
 
               {/* Register Form */}
-              <form action="" className="md:space-y-6 space-y-4">
+              <form action="" className="md:space-y-6 space-y-4" onSubmit={handleSubmit(onSubmitRegister)}>
                 <div className="md:space-y-4 space-y-2">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className={`text-sm font-medium ${darkThemeToggler ? 'text-white': 'text-black'}`}>
+                      <label
+                        className={`text-sm font-medium ${
+                          darkThemeToggler ? "text-white" : "text-black"
+                        }`}
+                      >
                         First Name
                       </label>
                       <input
@@ -242,10 +293,15 @@ const LoginAndRegsiterPage = () => {
                             ? "bg-black text-white"
                             : "bg-white text-black"
                         }`}
+                        {...register("firstName",{required:true})}
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className={`text-sm font-medium ${darkThemeToggler ? 'text-white': 'text-black'}`}>
+                      <label
+                        className={`text-sm font-medium ${
+                          darkThemeToggler ? "text-white" : "text-black"
+                        }`}
+                      >
                         Last Name
                       </label>
                       <input
@@ -256,12 +312,17 @@ const LoginAndRegsiterPage = () => {
                             ? "bg-black text-white"
                             : "bg-white text-black"
                         }`}
+                        {...register("lastName",{required:true})}
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1">
-                    <label className={`text-sm font-medium ${darkThemeToggler ? 'text-white': 'text-black'}`}>
+                    <label
+                      className={`text-sm font-medium ${
+                        darkThemeToggler ? "text-white" : "text-black"
+                      }`}
+                    >
                       Username
                     </label>
                     <input
@@ -272,10 +333,15 @@ const LoginAndRegsiterPage = () => {
                           ? "bg-black text-white"
                           : "bg-white text-black"
                       }`}
+                      {...register("userName",{required:true})}
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className={`text-sm font-medium ${darkThemeToggler ? 'text-white': 'text-black'}`}>
+                    <label
+                      className={`text-sm font-medium ${
+                        darkThemeToggler ? "text-white" : "text-black"
+                      }`}
+                    >
                       Email
                     </label>
                     <input
@@ -286,11 +352,16 @@ const LoginAndRegsiterPage = () => {
                           ? "bg-black text-white"
                           : "bg-white text-black"
                       }`}
+                    {...register("email",{required:true})}
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className={`text-sm font-medium ${darkThemeToggler ? 'text-white': 'text-black'}`}>
+                    <label
+                      className={`text-sm font-medium ${
+                        darkThemeToggler ? "text-white" : "text-black"
+                      }`}
+                    >
                       Password
                     </label>
                     <div className="relative">
@@ -302,6 +373,7 @@ const LoginAndRegsiterPage = () => {
                             ? "bg-black text-white"
                             : "bg-white text-black"
                         }`}
+                        {...register("password",{required:true})}
                       />
                       <button
                         type="button"
@@ -335,7 +407,11 @@ const LoginAndRegsiterPage = () => {
                   </div>
 
                   <div className="space-y-1">
-                    <label className={`text-sm font-medium ${darkThemeToggler ? 'text-white': 'text-black'}`}>
+                    <label
+                      className={`text-sm font-medium ${
+                        darkThemeToggler ? "text-white" : "text-black"
+                      }`}
+                    >
                       Confirm Password
                     </label>
                     <div className="relative">
@@ -400,4 +476,4 @@ const LoginAndRegsiterPage = () => {
   );
 };
 
-export default LoginAndRegsiterPage;
+export default AuthPage;

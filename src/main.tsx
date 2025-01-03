@@ -9,13 +9,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import {AppLayout,NoSidebarLayout } from './layouts/index.ts'
-import {HomePage,LoginAndResgisterPage} from './pages/index.ts'
+import {HomePage,AuthPage} from './pages/index.ts'
 import './App.css'
 
 const router = createBrowserRouter(
   createRoutesFromChildren([
     <Route element={<NoSidebarLayout />}>
-      <Route path="/auth"  element={<LoginAndResgisterPage/>}/>
+      <Route path="/auth"  element={<AuthPage/>}/>
     </Route>,
     <Route element={<AppLayout />}>
       <Route path="/" element={<HomePage/>}/>

@@ -1,6 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import {Navbar, SideBar} from '../components/index'
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
 
@@ -13,7 +12,7 @@ const AppLayout = () => {
   return (
     <div className={`flex transition-all  duration-300 ease-in-out  ${darkTheme ? `bg-[#0f0f0f]`:`bg-white`} `}>
       <Navbar />
-      {showSidebar && <Sidebar />}
+      {showSidebar && <SideBar />}
       <main className={`transition-all  duration-300 ease-in-out overflow-hidden ${darkTheme ? `bg-[#0f0f0f] text-white`:`bg-white`} `}>
         <Outlet />
       </main>

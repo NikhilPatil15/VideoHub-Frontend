@@ -3,9 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
 import { Login, Register } from "../components";
 
-
-
-const AuthPage = () => {
+const AuthPage = ():JSX.Element => {
   const [activeTab, setActiveTab] = useState("login");
   const darkThemeToggler = useSelector(
     (state: RootState) => state.DarkTheme.dark

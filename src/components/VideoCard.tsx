@@ -18,7 +18,7 @@ const VideoCard = ({
   channelId,
   videoDuration,
   channelAvatar,
-}: VideoCard) => {
+}: VideoCard):JSX.Element => {
     
     const darkTheme = useSelector((state:RootState) => state.DarkTheme.dark)
     

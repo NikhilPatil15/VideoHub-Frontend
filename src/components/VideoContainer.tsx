@@ -9,7 +9,7 @@ import { RootState, useAppDispatch } from "../redux/store/store";
 import VideoHubBackend from '../assets/VideoHubBackend.png'
 import youtubeClone from '../assets/youtubeClone.png'
 
-const VideoContainer = () => {
+const VideoContainer = ():JSX.Element => {
   const [isLoading, setIsloading] = useState(true);
   const [video, setVideo] = useState<any>();
   const toggle = useSelector((state: RootState) => state.Toggle.open);
@@ -253,12 +253,12 @@ const VideoContainer = () => {
   if (isLoading)
     return (
       <div
-        className={`grid ${
+        className={`w-full grid ${
           toggle ? "grid-cols-3 gap-3" : "grid-cols-4 gap-4"
         } m-4 mt-14 max-[640px]:grid-cols-1 max-[1024px]:grid-cols-2`}
       >
         {Array.from({ length: 12 }).map((_, index) => (
-          <div className="w-full" key={index}>
+          <div className="w-full h-full" key={index}>
             <VideoThumbnailLoader /> {/* Use custom loader */}
           </div>
         ))}

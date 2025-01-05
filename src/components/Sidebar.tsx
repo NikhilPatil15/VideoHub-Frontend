@@ -1,20 +1,13 @@
-import { IoHomeOutline, IoSettingsOutline } from "react-icons/io5";
-import { SiYoutubeshorts } from "react-icons/si";
+import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineSubscriptions, MdOutlineTrendingUp } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
-import { FaHistory, FaRegQuestionCircle } from "react-icons/fa";
-import {
-  RiContactsLine,
-  RiLogoutBoxLine,
-  RiLogoutCircleRLine,
-} from "react-icons/ri";
+import { FaHistory } from "react-icons/fa";
 import { useState } from "react";
-import { CiLogout } from "react-icons/ci";
 import { SlLogout } from "react-icons/sl";
 import Avatar from "react-avatar";
 
-const SideBar = () => {
+const SideBar = ():JSX.Element => {
   const toggle = useSelector((state: RootState) => state.Toggle.open);
   const user = useSelector((state: RootState) => state.Auth.user);
   const darkTheme = useSelector((state: RootState) => state.DarkTheme.dark);
@@ -75,7 +68,6 @@ const SideBar = () => {
       icons: <SlLogout size={"30px"} />,
       title: "Logout",
     },
-
   ];
 
   const handleItemClick = (index: number) => {
@@ -84,12 +76,16 @@ const SideBar = () => {
   return (
     <div
       className={`z-50 ${
-        toggle ? "w-[15%] max-[1024px]:w-[25%]  " : "w-[5%] max-[1024px]:w-[10%]"
-      } mt-16 overflow-y-scroll overflow-x-hidden fixed left-0 right-0 top-0 bottom-0 h-[100vh] text-black  transition-all duration-300 ease-in-out  max-[769px]:hidden ${
-        darkTheme ? "bg-[#0f0f0f] text-white shadow-gray-600 shadow-md" : "bg-white text-black shadow-2xl"
+        toggle
+          ? "w-[15%] max-[1024px]:w-[25%]  "
+          : "w-[5%] max-[1024px]:w-[10%]"
+      } mt-16 overflow-hidden fixed left-0 right-0 top-0 bottom-0  text-black  transition-all duration-300 ease-in-out  max-[769px]:hidden ${
+        darkTheme
+          ? "bg-[#0f0f0f] text-white shadow-gray-600 shadow-md"
+          : "bg-white text-black shadow-2xl"
       }`}
     >
-      <div className="flex flex-col space-y-4 py-6 px-4 gap-2 h-full">
+      <div className="flex flex-col space-y-4 py-6 px-4 gap-2 ">
         {!user ? (
           <>
             {list.map((element, index) => (

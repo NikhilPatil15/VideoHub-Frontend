@@ -143,18 +143,18 @@ const Login = (): JSX.Element => {
         </div>
 
         {/* Login Actions */}
-        <div className="space-y-4">
+        <div className="space-y-4 flex items-center justify-center flex-col ">
           <button
             type="submit"
-            className={`px-3 py-2 border rounded-md ${
+            className={`px-4 py-2 border rounded-md ${
               darkThemeToggler
                 ? "border-white text-white hover:bg-slate-100 hover:text-black"
                 : "border-black text-black hover:bg-black hover:text-white"
-            } hover:scale-105 duration-300 w-full`}
+            }  duration-300  w-full`}
           >
             Login
           </button>
-          <button className="w-full text-blue-600 hover:text-blue-700 text-sm font-medium">
+          <button className=" text-blue-600 hover:text-blue-700 text-sm font-medium">
             Forgot Password?
           </button>
         </div>

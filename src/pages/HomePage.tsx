@@ -13,7 +13,7 @@ const HomePage = (): JSX.Element => {
           : "lg:w-[90%] lg:ml-36 md:w-[90%]  md:ml-auto"
       } ${
         darkTheme ? `bg-[#0f0f0f] text-white` : `bg-white text-black`
-      } w-full pb-10 h-[100vh] px-4 overflow-auto`}
+      } w-full pb-10  px-4 overflow-auto`}
     >
       <VideoContainer />
     </div>

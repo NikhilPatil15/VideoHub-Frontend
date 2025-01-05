@@ -9,7 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import {AppLayout,NoSidebarLayout } from './layouts/index.ts'
-import {HomePage,AuthPage} from './pages/index.ts'
+import {HomePage,AuthPage, ProfilePage} from './pages/index.ts'
 import './App.css'
 
 const router = createBrowserRouter(
@@ -19,6 +19,7 @@ const router = createBrowserRouter(
     </Route>,
     <Route element={<AppLayout />}>
       <Route path="/" element={<HomePage/>}/>
+      <Route path="/profile" element={<ProfilePage/>}/>
     </Route>,
   ])
 );

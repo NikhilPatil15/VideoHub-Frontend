@@ -13,7 +13,7 @@ import type { useAppDispatch } from "../redux/store/store";
 import { Link } from "react-router-dom";
 
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC = ():JSX.Element => {
   const toggler = useSelector((state: RootState) => state.Toggle.open);
   const darkThemeToggler = useSelector(
     (state: RootState) => state.DarkTheme.dark

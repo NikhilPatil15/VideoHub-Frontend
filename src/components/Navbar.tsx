@@ -39,7 +39,7 @@ const Navbar: React.FC = ():JSX.Element => {
     <div
       className={`z-[60] flex justify-between items-center fixed w-full  p-4 transition-all duration-300 ease-in-out ${
         darkThemeToggler ? "bg-[#0f0f0f] shadow-gray-600 shadow-md" : "bg-white  shadow-xl"
-      } `}
+      } transition-all duration-300 ease-in-out `}
     >
       <div className="flex items-center gap-4">
         <RxHamburgerMenu

@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.4.0",
     "@types/shimmer": "^1.2.0",
     "axios": "^1.7.8",
+    "lucide-react": "^0.469.0",
     "react": "^18.3.1",
     "react-avatar": "^5.0.3",
     "react-content-loader": "^7.0.2",

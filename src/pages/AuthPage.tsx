@@ -10,7 +10,7 @@ const AuthPage = ():JSX.Element => {
   );
   return (
     <div
-      className={`min-h-screen ${
+      className={` min-h-screen ${
         darkThemeToggler
           ? "bg-[#0f0f0f] shadow-gray-600 shadow-md"
           : "bg-white  shadow-xl"

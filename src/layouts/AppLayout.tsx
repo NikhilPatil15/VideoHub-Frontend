@@ -5,7 +5,7 @@ import { RootState } from "../redux/store/store";
 
 const AppLayout = () => {
   const location = useLocation();
-  const showSidebar = !["/watch", "/login", "/register"].some((path) =>
+  const showSidebar = !["/watch", "/auth"].some((path) =>
     location.pathname.startsWith(path)
   );
   const darkTheme = useSelector((state:RootState) => state.DarkTheme.dark)

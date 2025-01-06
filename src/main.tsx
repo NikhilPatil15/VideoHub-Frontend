@@ -11,6 +11,7 @@ import {
 import {AppLayout,NoSidebarLayout } from './layouts/index.ts'
 import {HomePage,AuthPage, ProfilePage} from './pages/index.ts'
 import './App.css'
+import VideoDetailsPage from "./pages/VideoDetailsPAge.tsx";
 
 const router = createBrowserRouter(
   createRoutesFromChildren([
@@ -20,6 +21,8 @@ const router = createBrowserRouter(
     <Route element={<AppLayout />}>
       <Route path="/" element={<HomePage/>}/>
       <Route path="/profile" element={<ProfilePage/>}/>
+      <Route path="/watch/:id" element={<VideoDetailsPage/>}/>
+      
     </Route>,
   ])
 );

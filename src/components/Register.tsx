@@ -339,7 +339,7 @@ const Register = (): JSX.Element => {
             darkThemeToggler
               ? "border-white text-white hover:bg-slate-100 hover:text-black"
               : "border-black text-black hover:bg-black hover:text-white"
-          } hover:scale-105 duration-300 w-full`}
+          }  duration-300 w-full`}
         >
           Create Account
         </button>

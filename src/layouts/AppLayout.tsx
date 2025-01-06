@@ -14,7 +14,7 @@ const AppLayout = () => {
 
       <Navbar />
       {showSidebar && <SideBar />}
-      <main className={`transition-all  duration-300 ease-in-out overflow-y-hidden ${darkTheme ? `bg-[#0f0f0f] text-white`:`bg-white`} `}>
+      <main className={`transition-all  duration-300 ease-in-out  ${darkTheme ? `bg-[#0f0f0f] text-white`:`bg-white`} `}>
         <Outlet />
       </main>
     </div>

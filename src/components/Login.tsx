@@ -34,42 +34,46 @@ const Login = (): JSX.Element => {
     // console.log("Response: ", response);
   };
   return (
-    <div className="space-y-6 ">
+    <div className="md:space-y-6 space-y-3">
       {/* Login Header */}
-      <div className=" flex justify-stretch ">
+      <div className=" flex justify-between ">
         <div>
-          <h2 className={` text-2xl font-bold `}>Login</h2>
+          <h2 className={` text-2xl font-bold ${
+              darkThemeToggler ? "text-white" : "text-black"
+            }`}>Login</h2>
           <p
             className={`text-sm ${
               darkThemeToggler ? "text-white" : "text-black"
             } mt-1`}
           >
-            Welcome back! Please enter your credentials to continue.
+            Welcome back!
+            <br/>
+            Please enter your credentials to continue.
           </p>
         </div>
-        <div className="p-2">
+        
           {/* Dark theme toggler button */}
-
+            <div>
           {!darkThemeToggler ? (
             <MdOutlineDarkMode
               size={"30px"}
-              className="cursor-pointer hover:-translate-y-1 hover:scale-105 duration-300 shadow-lg hover:shadow-xl"
+              className="cursor-pointer hover:-translate-y-1 hover:scale-105 duration-300 shadow-lg hover:shadow-xl "
               onClick={() => handleDarkThemeClick()}
             />
           ) : (
             <CiLight
               size={"30px"}
-              className="cursor-pointer hover:-translate-y-1 hover:scale-105 duration-300 text-white"
+              className="cursor-pointer hover:-translate-y-1 hover:scale-105 duration-300 text-white  "
               onClick={() => handleDarkThemeClick()}
             />
           )}
-        </div>
+       </div>
       </div>
 
       {/* Login Form */}
       <form
         action=""
-        className="space-y-6"
+        className="space-y-6 w-full"
         onSubmit={handleSubmit(onSubmitLogin)}
       >
         <div className="space-y-4">
@@ -143,10 +147,10 @@ const Login = (): JSX.Element => {
         </div>
 
         {/* Login Actions */}
-        <div className="space-y-4 flex items-center justify-center flex-col ">
+       
           <button
             type="submit"
-            className={`px-4 py-2 border rounded-md ${
+            className={`px-3 py-2 border rounded-md ${
               darkThemeToggler
                 ? "border-white text-white hover:bg-slate-100 hover:text-black"
                 : "border-black text-black hover:bg-black hover:text-white"
@@ -157,7 +161,7 @@ const Login = (): JSX.Element => {
           <button className=" text-blue-600 hover:text-blue-700 text-sm font-medium">
             Forgot Password?
           </button>
-        </div>
+        
       </form>
     </div>
   );

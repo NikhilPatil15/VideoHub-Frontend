@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
+import axiosInstance from "../utils/axiosInstance";
+import { BiLoader } from "react-icons/bi";
+import { FiLoader } from "react-icons/fi";
 
 interface IForm {
   fullName: string;
@@ -16,9 +19,12 @@ const ProfilePage: React.FC = () => {
     avatar: "https://via.placeholder.com/150",
     fullName: "John  Doe",
   });
+  const [loading, setLoading] = useState<boolean>(false);
 
   const toggle = useSelector((state: RootState) => state.Toggle.open);
-  const darkThemeToggler = useSelector((state: RootState) => state.DarkTheme.dark);
+  const darkThemeToggler = useSelector(
+    (state: RootState) => state.DarkTheme.dark
+  );
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -44,26 +50,31 @@ const ProfilePage: React.FC = () => {
     }
   };
 
-  const onFormSubmit = (e: React.FormEvent) => {
+  const onFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Updated user data:", userData);
     // Dispatch an action or make an API call to save changes
+
+    setLoading(true);
+    // const response = await axiosInstance.put('',)
+
+    setLoading(false);
   };
 
   return (
     <div
       className={` absolute font-bold transition-all duration-300 ease-in-out ${
         darkThemeToggler ? `bg-[#0f0f0f] text-white` : `bg-white text-black`
-      } w-full h-[100vh] px-4 flex items-center justify-center overflow-auto `}
+      } w-full h-[100vh] px-4 flex items-center justify-center overflow-auto mt-14 md:mt-0`}
     >
       <form
         onSubmit={onFormSubmit}
         className={`${
           darkThemeToggler ? `bg-[#1a1a1a]` : `bg-white`
-        } p-6 rounded-lg shadow-lg w-full max-w-md border border-gray-500`}
+        } p-6 rounded-lg shadow-lg w-full max-w-md border border-gray-500 space-y-4`}
       >
         <h1 className="text-2xl font-bold mb-6 text-center">Edit Profile</h1>
-        <div className="flex flex-col items-center mb-6">
+        <div className="flex flex-col items-center  mb-6">
           <img
             src={userData.avatar}
             alt="Avatar"
@@ -77,9 +88,11 @@ const ProfilePage: React.FC = () => {
           />
         </div>
 
-        <div className="mb-4">
+        <div className="space-y-1">
           <label
-            className="block text-gray-700 font-medium mb-2"
+            className={`text-md font-medium ${
+              !darkThemeToggler ? "text-black" : "text-white"
+            }`}
             htmlFor="username"
           >
             Username
@@ -90,12 +103,16 @@ const ProfilePage: React.FC = () => {
             name="username"
             value={userData.username}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none"
+            className={`w-full px-3 py-2 border border-gray-500 shadow-sm focus:outline-none  placeholder-gray-400 ${
+              darkThemeToggler ? "bg-black text-white" : "bg-white text-black"
+            }`}
           />
         </div>
-        <div className="mb-4">
+        <div className="space-y-1">
           <label
-            className="block text-gray-700 font-medium mb-2"
+            className={`text-md font-medium ${
+              !darkThemeToggler ? "text-black" : "text-white"
+            }`}
             htmlFor="fullName"
           >
             FullName
@@ -105,13 +122,17 @@ const ProfilePage: React.FC = () => {
             name="fullName"
             value={userData.fullName}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none "
+            className={`w-full px-3 py-2 border border-gray-500 shadow-sm focus:outline-none  placeholder-gray-400 ${
+              darkThemeToggler ? "bg-black text-white" : "bg-white text-black"
+            }`}
           />
         </div>
 
-        <div className="mb-4">
+        <div className="space-y-1">
           <label
-            className="block text-gray-700 font-medium mb-2"
+            className={`text-md font-medium ${
+              !darkThemeToggler ? "text-black" : "text-white"
+            }`}
             htmlFor="email"
           >
             Email
@@ -122,20 +143,34 @@ const ProfilePage: React.FC = () => {
             name="email"
             value={userData.email}
             onChange={handleInputChange}
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none"
+            className={`w-full px-3 py-2 border border-gray-500 shadow-sm focus:outline-none  placeholder-gray-400 ${
+              darkThemeToggler ? "bg-black text-white" : "bg-white text-black"
+            }`}
           />
         </div>
 
-        <button
-          type="submit"
-          className={`px-3 py-2 border rounded-md ${
-            darkThemeToggler
-              ? "border-white text-white hover:bg-slate-100 hover:text-black"
-              : "border-black text-black hover:bg-black hover:text-white"
-          } hover:scale-105 duration-300 w-full`}
-        >
-          Save Changes
-        </button>
+        {!loading ? (
+          <button
+            type="submit"
+            className={`px-3 py-2 border rounded-md ${
+              darkThemeToggler
+                ? "border-white text-white hover:bg-slate-100 hover:text-black"
+                : "border-black text-black hover:bg-black hover:text-white"
+            } hover:scale-105 duration-300 w-full `}
+          >
+            Save Changes
+          </button>
+        ) : (
+          <div
+            className={`px-3 py-2 border rounded-md ${
+              darkThemeToggler
+                ? "border-white text-white hover:bg-slate-100 hover:text-black"
+                : "border-black text-black hover:bg-black hover:text-white"
+            } hover:scale-105 duration-300 w-full flex justify-center items-center text-2xl`}
+          >
+            <FiLoader className="animate-spin"/>
+          </div>
+        )}
       </form>
     </div>
   );

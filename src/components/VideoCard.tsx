@@ -20,7 +20,7 @@ const VideoCard = ({
   channelAvatar,
 }: VideoCard):JSX.Element => {
     
-    const darkTheme = useSelector((state:RootState) => state.DarkTheme.dark)
+
     
     console.log("thumbnail url: ", thumbnailUrl);
     

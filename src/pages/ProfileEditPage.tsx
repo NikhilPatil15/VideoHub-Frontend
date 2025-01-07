@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
-import axiosInstance from "../utils/axiosInstance";
-import { BiLoader } from "react-icons/bi";
 import { FiLoader } from "react-icons/fi";
 
 interface IForm {
@@ -21,7 +19,7 @@ const ProfilePage: React.FC = () => {
   });
   const [loading, setLoading] = useState<boolean>(false);
 
-  const toggle = useSelector((state: RootState) => state.Toggle.open);
+ 
   const darkThemeToggler = useSelector(
     (state: RootState) => state.DarkTheme.dark
   );

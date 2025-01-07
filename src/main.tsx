@@ -9,7 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import {AppLayout,NoSidebarLayout } from './layouts/index.ts'
-import {HomePage,AuthPage, ProfilePage, VideoDetailsPage, VideoUploadPage} from './pages/index.ts'
+import {HomePage,AuthPage, ProfilePage, VideoDetailsPage, VideoUploadPage, CommunityPostUploadPage} from './pages/index.ts'
 import './App.css'
 
 
@@ -23,6 +23,7 @@ const router = createBrowserRouter(
       <Route path="/profile" element={<ProfilePage/>}/>
       <Route path="/watch/:id" element={<VideoDetailsPage/>}/>
       <Route path="/upload/video" element={<VideoUploadPage/>}/>
+      <Route path="/upload/community-post" element={<CommunityPostUploadPage/>}/>
     </Route>,
   ])
 );

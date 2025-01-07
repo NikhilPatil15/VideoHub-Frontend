@@ -76,13 +76,13 @@ const VideoUploadPage: React.FC = () => {
     <div
       className={`absolute flex justify-center items-center min-h-screen ${
         darkThemeToggler ? "bg-[#1a1a1a]" : "bg-white"
-      } w-full mt-14 md:mt-0`}
+      } w-full mt-14 md:mt-0 transition-all duration-300 ease-in-out`}
     >
       <form
         onSubmit={handleSubmit}
         className={`${
           darkThemeToggler ? "bg-[#2a2a2a]" : "bg-white"
-        } shadow-md rounded-lg p-6 w-full max-w-lg border border-gray-500 space-y-3 md:space-y-6 `}
+        } shadow-md rounded-lg p-6 w-full max-w-lg border border-gray-500 space-y-3 md:space-y-6 transition-all duration-300 ease-in-out`}
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Upload Video</h2>
 
@@ -95,9 +95,9 @@ const VideoUploadPage: React.FC = () => {
             onChange={handleFileChange}
             className={`w-full px-3 py-2 border border-gray-500 shadow-sm focus:outline-none  placeholder-gray-400 ${
               darkThemeToggler
-                ? "bg-[#2a2a3a] text-white"
+                ? "bg-[#2a2a2a] text-white"
                 : "bg-white text-black"
-            } rounded-md`}
+            } rounded-md transition-all duration-300 ease-in-out`}
             required
           />
         </div>
@@ -121,9 +121,9 @@ const VideoUploadPage: React.FC = () => {
             onChange={handleInputChange}
             className={`w-full px-3 py-2 border border-gray-500 shadow-sm focus:outline-none  placeholder-gray-400 ${
               darkThemeToggler
-                ? "bg-[#2a2a3a] text-white"
+                ? "bg-[#2a2a2a] text-white"
                 : "bg-white text-black"
-            } rounded-md`}
+            } rounded-md transition-all duration-300 ease-in-out`}
             required
           />
         </div>
@@ -137,9 +137,9 @@ const VideoUploadPage: React.FC = () => {
             onChange={handleInputChange}
             className={`w-full px-3 py-2 border border-gray-500 shadow-sm focus:outline-none  placeholder-gray-400 ${
               darkThemeToggler
-                ? "bg-[#2a2a3a] text-white"
+                ? "bg-[#2a2a2a] text-white"
                 : "bg-white text-black"
-            } rounded-md`}
+            } rounded-md transition-all duration-300 ease-in-out`}
             rows={4}
           />
         </div>
@@ -153,9 +153,9 @@ const VideoUploadPage: React.FC = () => {
             onChange={handleThumbnailChange}
             className={`w-full px-3 py-2 border border-gray-500 shadow-sm focus:outline-none  placeholder-gray-400 ${
               darkThemeToggler
-                ? "bg-[#2a2a3a] text-white"
+                ? "bg-[#2a2a2a] text-white"
                 : "bg-white text-black"
-            } rounded-md`}
+            } rounded-md transition-all duration-300 ease-in-out`}
           />
         </div>
         {formData.thumbnail && (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import { MessageCircle, ThumbsUp, ThumbsDown, Share2, X, ArrowLeft } from "lucide-react";
@@ -51,6 +51,21 @@ const VideoDetailsPage: React.FC = () => {
 
    console.log("Comment added!")
   };
+
+  {/* Fetching the video details which is selected! */}
+  // useEffect(() => {
+  //   const fetchVideoDetails = async() => {
+      // const response = await axiosInstance.get('id',)
+  //   }
+  
+  /* Fetching the related videos to show it on the list */
+  // const fetchVideos = async () => {
+  //   const response = await axiosInstance.get()
+  // }
+    
+  // }, [])
+  
+
 
   const CommentInput = () => (
     <form onSubmit={handleSubmit(handleSubmitComment)} className="flex items-start gap-4 mb-6">
@@ -222,14 +237,14 @@ const VideoDetailsPage: React.FC = () => {
 
       {/* Mobile Comments Drawer */}
       {showComments && (
-        <div className="lg:hidden fixed inset-0 bg-white z-50">
+        <div className={`mt-16 lg:hidden fixed inset-0 ${darkThemeToggler ? 'bg-[#1a1a1a]' : 'bg-white'} z-50`}>
           {/* Header */}
           <div className="flex items-center gap-4 p-4 border-b">
             <button 
               onClick={() => setShowComments(false)}
               className="p-2 hover:bg-gray-100 rounded-full"
             >
-              <ArrowLeft size={24} />
+              <ArrowLeft size={35} />
             </button>
             <h3 className="text-xl font-bold">{comments.length} Comments</h3>
           </div>

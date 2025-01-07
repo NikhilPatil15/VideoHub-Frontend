@@ -26,7 +26,7 @@ const VideoCard = ({
     
 
   return (
-    <div className={`w-90 cursor-pointer m-2  hover:-translate-y-1 hover:scale-105 duration-300  hover:rounded-none hover:transition-all`}>
+    <div className={`w-90 cursor-pointer m-2  hover:-translate-y-1 ease-in-out duration-300  hover:rounded-none hover:transition-all`}>
       <img
         src={thumbnailUrl}
         className="w-full rounded-xl "

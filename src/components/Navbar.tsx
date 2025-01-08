@@ -69,12 +69,12 @@ const Navbar: React.FC = ():JSX.Element => {
                 : "bg-white text-black "
             }`}
           />
-          <button className="px-4 py-2">
+          <Link to={`/search?q=${encodeURIComponent(input.trim())}`} className="px-4 py-2">
             <IoSearch
               size={"22px"}
               className={`${darkThemeToggler ? "text-white" : "text-black"}`}
             />
-          </button>
+          </Link>
         </div>
       </div>
 

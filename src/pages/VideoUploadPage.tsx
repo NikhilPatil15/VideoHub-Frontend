@@ -82,7 +82,7 @@ const VideoUploadPage: React.FC = () => {
         onSubmit={handleSubmit}
         className={`${
           darkThemeToggler ? "bg-[#2a2a2a]" : "bg-white"
-        } shadow-md rounded-lg p-6 w-full max-w-lg border border-gray-500 space-y-3 md:space-y-6 transition-all duration-300 ease-in-out`}
+        } mt-14 md:mt-24 mb-14 shadow-md rounded-lg p-6 w-full max-w-lg border border-gray-500 space-y-3 md:space-y-6 transition-all duration-300 ease-in-out`}
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Upload Video</h2>
 

@@ -10,11 +10,11 @@ const AppLayout = () => {
   );
   const darkTheme = useSelector((state:RootState) => state.DarkTheme.dark)
   return (
-    <div className={`flex transition-all  duration-300 ease-in-out  ${darkTheme ? `bg-[#0f0f0f]`:`bg-white`} `}>
+    <div className={`flex transition-all  duration-300 ease-in-out  ${darkTheme ? `bg-[#1a1a1a]`:`bg-white`} `}>
 
       <Navbar />
       {showSidebar && <SideBar />}
-      <main className={`transition-all  duration-300 ease-in-out  ${darkTheme ? `bg-[#0f0f0f] text-white`:`bg-white`} `}>
+      <main className={`transition-all  duration-300 ease-in-out  ${darkTheme ? `bg-[#1a1a1a] text-white`:`bg-white`} `}>
         <Outlet />
       </main>
     </div>

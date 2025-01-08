@@ -6,6 +6,7 @@ import { FaHistory } from "react-icons/fa";
 import { useState } from "react";
 import { SlLogout } from "react-icons/sl";
 import Avatar from "react-avatar";
+import { Link } from "react-router-dom";
 
 const SideBar = ():JSX.Element => {
   const toggle = useSelector((state: RootState) => state.Toggle.open);
@@ -18,10 +19,12 @@ const SideBar = ():JSX.Element => {
     {
       icons: <IoHomeOutline size={"30px"} />,
       title: "Home",
+      to:'/'
     },
     {
       icons: <MdOutlineTrendingUp size={"30px"} />,
       title: "Trending",
+      to:'/'
     },
 
     // {
@@ -43,10 +46,12 @@ const SideBar = ():JSX.Element => {
         />
       ),
       title: user?.userName || "Nikhil",
+      to:'/profile'
     },
     {
       icons: <IoHomeOutline size={"30px"} />,
       title: "Home",
+      to:'/'
     },
     {
       icons: <MdOutlineTrendingUp size={"30px"} />,
@@ -83,13 +88,13 @@ const SideBar = ():JSX.Element => {
         darkTheme
           ? "bg-[#0f0f0f] text-white shadow-gray-600 shadow-md"
           : "bg-white text-black shadow-2xl"
-      }`}
+      } transition-all duration-300`}
     >
       <div className="flex flex-col space-y-4 py-6 px-4 gap-2 ">
         {!user ? (
           <>
             {list.map((element, index) => (
-              <div
+              <Link
                 key={index}
                 className={`flex items-center space-x-4  rounded-lg p-2 cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:rounded-lg   ${
                   activeIndex === index
@@ -97,6 +102,7 @@ const SideBar = ():JSX.Element => {
                     : "bg-transparent"
                 }`}
                 onClick={() => handleItemClick(index)}
+                to={element.to}
               >
                 <div className="text-2xl">{element.icons}</div>
                 {toggle && (
@@ -104,7 +110,7 @@ const SideBar = ():JSX.Element => {
                     {element.title}
                   </p>
                 )}
-              </div>
+              </Link>
             ))}{" "}
           </>
         ) : (

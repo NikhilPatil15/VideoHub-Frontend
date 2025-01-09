@@ -5,6 +5,7 @@ import VideoDetailsPage from "./VideoDetailsPage";
 import VideoUploadPage from "./VideoUploadPage";
 import CommunityPostUploadPage from "./CommunityPostUploadPage";
 import SearchResultsPage from "./SearchResultsPage";
+import ChannelPage from "./ChannelPage";
 
 export {
   HomePage,
@@ -14,4 +15,5 @@ export {
   SearchResultsPage,
   VideoUploadPage,
   CommunityPostUploadPage,
+  ChannelPage,
 };

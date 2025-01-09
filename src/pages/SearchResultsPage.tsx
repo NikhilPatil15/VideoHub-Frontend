@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Clock, ThumbsUp } from "lucide-react";
+import { Clock } from "lucide-react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
 

@@ -5,7 +5,7 @@ import { MessageCircle, ThumbsUp, ThumbsDown, Share2, X, ArrowLeft } from "lucid
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store/store";
 import { useForm } from "react-hook-form";
-import axiosInstance from "../utils/axiosInstance";
+import axiosInstance from "../api/axiosInstance";
 import Avatar from "react-avatar";
 
 interface CommentForm{

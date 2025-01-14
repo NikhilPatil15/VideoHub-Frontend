@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDropzone } from 'react-dropzone';
 import { useSelector } from 'react-redux';
@@ -29,6 +29,7 @@ const ChannelPage: React.FC = () => {
     ],
   };
 
+
   const onDrop = (acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
     if (file) {
@@ -56,13 +57,25 @@ const ChannelPage: React.FC = () => {
     }
   };
 
+  /*useEffect request to store the banner image if user adds it and if user subscribes and likes the community post and to fetch the videos and all the details about the channel  */
+  useEffect(() => {
+    // const fetchChannelDetails = async () => {
+    //   try {
+    //     // const response = await axiosInstance.get(`/channels/${channelId}`);
+    //     // setChannelInfo(response.data);
+    //   } catch (error) {
+    //     console.error('Failed to fetch channel details:', error);
+    //   }
+    // }
+  },[])
+
   const tabs = ['HOME', 'VIDEOS', 'COMMUNITY', 'PLAYLISTS', 'CHANNELS', 'ABOUT'];
 
   return (
     <div className={` transition-all duration-300 min-h-screen 
-      ${!isSidebarCollapsed ? 'md:ml-20' : 'md:ml-60'} absolute mt-16   ${darkThemeToggler ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
+      ${!isSidebarCollapsed ? 'md:ml-20' : 'md:ml-60'} absolute mt-16 transition-all duration-300 ease-in-out  ${darkThemeToggler ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
       {/* Banner Section - Responsive height based on screen size */}
-      <div className={`  ${darkThemeToggler ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
+      <div className={` transition-all duration-300 ease-in-out ${darkThemeToggler ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
         {channelInfo.banner ? (
           <img
             src={channelInfo.banner}
@@ -72,7 +85,7 @@ const ChannelPage: React.FC = () => {
         ) : (
           <div
             {...getRootProps()}
-            className={`w-full h-32 sm:h-48 md:h-56 lg:h-64 xl:h-72 ${darkThemeToggler ? 'bg-[#1a1a1a]' : 'bg-white'} flex items-center justify-center cursor-pointer`}
+            className={`w-full h-32 sm:h-48 md:h-56 lg:h-64 xl:h-72 transition-all duration-300 ease-in-out ${darkThemeToggler ? 'bg-[#1a1a1a]' : 'bg-white'} flex items-center justify-center cursor-pointer`}
           >
             <input {...getInputProps()} />
             <p className="text-gray-500 text-center text-sm sm:text-base px-4">
@@ -85,7 +98,7 @@ const ChannelPage: React.FC = () => {
       {/* Main Content Container - Responsive padding and max-width */}
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Channel Info Section - Responsive layout and spacing */}
-        <div className={`flex flex-col sm:flex-row items-center sm:items-start py-4 sm:py-6 border-b ${darkThemeToggler ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
+        <div className={`flex flex-col sm:flex-row items-center sm:items-start py-4 sm:py-6 border-b transition-all duration-300 ease-in-out ${darkThemeToggler ? 'bg-[#0f0f0f]' : 'bg-white'}`}>
           <img
             src={channelInfo.avatar}
             alt={channelInfo.name}
@@ -105,7 +118,7 @@ const ChannelPage: React.FC = () => {
         </div>
 
         {/* Navigation Tabs - Responsive scrolling and spacing */}
-        <div className={`sticky top-14 ${darkThemeToggler ? 'bg-[#0f0f0f] text-white' : 'bg-white'} z-10`}>
+        <div className={`sticky top-14 transition-all duration-300 ease-in-out ${darkThemeToggler ? 'bg-[#0f0f0f] text-white' : 'bg-white'} z-10`}>
           <div className={`flex items-center justify-center space-x-2 border-b ${!darkThemeToggler? 'border-gray-200' : 'border-black'} gap-2`}>
             {tabs.map(tab => (
               <button
@@ -113,8 +126,8 @@ const ChannelPage: React.FC = () => {
                 onClick={() => setActiveTab(tab)}
                 className={` sm:px-3 py-3 sm:py-4 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap
                   ${activeTab === tab 
-                    ? `border-b-2 ${darkThemeToggler ? 'border-white ' : 'border-black text-black'} ` 
-                    :`${darkThemeToggler?'text-white':'text-black'} hover:scale-105`
+                    ? `border-b-2 transition-all duration-300 ease-in-out ${darkThemeToggler ? 'border-white ' : 'border-black text-black'} ` 
+                    :` transition-all duration-300 ease-in-out ${darkThemeToggler?'text-white':'text-black'} hover:scale-105`
                   }`}
               >
                 {tab}

@@ -9,7 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import {AppLayout,NoSidebarLayout } from './layouts/index.ts'
-import {HomePage,AuthPage, ProfilePage, VideoDetailsPage, VideoUploadPage, CommunityPostUploadPage, SearchResultsPage, ChannelPage} from './pages/index.ts'
+import {HomePage,AuthPage, ProfilePage, VideoDetailsPage, VideoUploadPage, CommunityPostUploadPage, SearchResultsPage, ChannelPage, PlaylistPage} from './pages/index.ts'
 import './App.css'
 
 
@@ -17,6 +17,7 @@ const router = createBrowserRouter(
   createRoutesFromChildren([
     <Route element={<NoSidebarLayout />}>
       <Route path="/auth"  element={<AuthPage/>}/>
+      
     </Route>,
     <Route element={<AppLayout />}>
       <Route path="/" element={<HomePage/>}/>
@@ -26,6 +27,8 @@ const router = createBrowserRouter(
       <Route path="/watch/:id" element={<VideoDetailsPage/>}/>
       <Route path="/upload/video" element={<VideoUploadPage/>}/>
       <Route path="/upload/community-post" element={<CommunityPostUploadPage/>}/>
+      <Route path="/playlist" element={<PlaylistPage/>}/>
+      
     </Route>,
   ])
 );

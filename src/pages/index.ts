@@ -6,6 +6,7 @@ import VideoUploadPage from "./VideoUploadPage";
 import CommunityPostUploadPage from "./CommunityPostUploadPage";
 import SearchResultsPage from "./SearchResultsPage";
 import ChannelPage from "./ChannelPage";
+import PlaylistPage from "./PlaylistPage";
 
 export {
   HomePage,
@@ -16,4 +17,5 @@ export {
   VideoUploadPage,
   CommunityPostUploadPage,
   ChannelPage,
+  PlaylistPage
 };

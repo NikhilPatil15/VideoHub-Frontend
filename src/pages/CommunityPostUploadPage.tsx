@@ -58,13 +58,13 @@ const CommunityPostUploadPage: React.FC = () => {
   return (
     <div
       className={`absolute flex justify-center items-center min-h-screen ${
-        darkThemeToggler ? "bg-[#1a1a1a]" : "bg-white"
+        darkThemeToggler ? "bg-[#0f0f0f]" : "bg-white"
       } w-full  mt-14 md:mt-0 transition-all duration-300 ease-in-out`}
     >
       <form
         onSubmit={handleSubmit}
         className={`${
-          darkThemeToggler ? "bg-[#2a2a2a]" : "bg-white"
+          darkThemeToggler ? "bg-[#1a1a1a]" : "bg-white"
         } shadow-md rounded-lg p-6 w-full max-w-lg border border-gray-500 space-y-3 md:space-y-6 transition-all duration-300 ease-in-out mt-14 md:mt-24 mb-14`}
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Create a Post</h2>
